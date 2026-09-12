@@ -1,0 +1,38 @@
+# --- Datasets grabados: NO van al repo -------------------------------------
+# Cada participante graba ~600 imagenes (unos 120 MB). Se envian aparte, no
+# por git. Ver la seccion "Como enviar tu grabacion" del README.
+HAR_mediapipe/data/
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.zip
+
+# --- Entornos y modelos entrenados -----------------------------------------
+.venv/
+venv/
+env/
+*.keras
+*.h5
+*.weights.h5
+
+# --- Python ----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# --- Editores / SO ---------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs ------------------------------------------------------------------
+logs.txt
+*.log
+
+# El modelo de MediaPipe (hand_landmarker.task, 7.8 MB) SI se versiona:
+# es imprescindible para grabar y no se descarga solo.
+!HAR_mediapipe/models/hand_landmarker.task

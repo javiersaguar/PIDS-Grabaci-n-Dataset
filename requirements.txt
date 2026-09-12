@@ -1,0 +1,17 @@
+# Kit de GRABACION del dataset - PIDS 26/27, Project 1
+#
+# Solo lo imprescindible para grabar. NO incluye tensorflow ni keras: el
+# entrenamiento se hace despues y en otra maquina, asi que la instalacion baja
+# de ~1 GB a ~150 MB.
+#
+# Versiones verificadas en Windows 11 + Python 3.12.9.
+# IMPORTANTE: usar Python 3.12 (3.13 aun no tiene rueda de mediapipe estable).
+
+mediapipe==1.0.1
+numpy==2.5.3
+pandas==3.0.5
+opencv-contrib-python==5.0.0.93
+
+# Nota: mediapipe ya arrastra opencv-contrib-python; se pinea aqui para que
+# todos grabemos con la misma version. NO instalar tambien opencv-python: las
+# dos ruedas se pisan entre si y rompen cv2.imshow.
