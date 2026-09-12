@@ -1,0 +1,22 @@
+# Normalizacion de finales de linea, para no depender de la configuracion de
+# git de cada companero (core.autocrlf varia entre maquinas).
+
+# Por defecto: git detecta que es texto y guarda LF en el repositorio.
+* text=auto
+
+# Los .bat DEBEN llegar con CRLF: cmd.exe falla al interpretar bloques
+# if (...) / for (...) en ficheros batch con finales de linea LF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Scripts de shell al reves: siempre LF, o bash da "bad interpreter".
+*.sh text eol=lf
+
+# Binarios: nunca tocar. El modelo de MediaPipe se corrompe si git intenta
+# convertirlo como si fuera texto.
+*.task binary
+*.keras binary
+*.h5 binary
+*.jpg binary
+*.png binary
+*.zip binary
