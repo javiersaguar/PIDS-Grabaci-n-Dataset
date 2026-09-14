@@ -16,7 +16,7 @@ if not defined PY (
     echo.
     echo [ERROR] No encuentro el entorno virtual .venv
     echo.
-    echo Creralo una sola vez, desde esta misma carpeta:
+    echo Crea el entorno una sola vez, desde esta misma carpeta:
     echo     py -3.12 -m venv .venv
     echo     .venv\Scripts\python.exe -m pip install --upgrade pip
     echo     .venv\Scripts\python.exe -m pip install -r requirements.txt
