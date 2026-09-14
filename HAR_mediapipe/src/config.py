@@ -85,7 +85,13 @@ DEFAULT_DETECTOR_PATH = os.path.abspath(os.path.join(
 
 
 def ConfigMediapipeDetector(model_path=DEFAULT_DETECTOR_PATH):
-    base_options = python.BaseOptions(model_asset_path=model_path)
+    # [CAMBIO v2] MediaPipe (C++) no abre rutas con tildes o enes en Windows:
+    # con model_asset_path, un usuario 'C:\Users\José' da
+    # FileNotFoundError al arrancar. Python si lee esas rutas, asi que se lee
+    # el fichero aqui y se le pasa el contenido a MediaPipe.
+    with open(model_path, 'rb') as f:
+        model_bytes = f.read()
+    base_options = python.BaseOptions(model_asset_buffer=model_bytes)
     options = vision.HandLandmarkerOptions(base_options=base_options, num_hands=1, min_tracking_confidence=0.5)
     detector = vision.HandLandmarker.create_from_options(options)
     return detector
