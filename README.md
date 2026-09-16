@@ -56,7 +56,7 @@ py -3.12 -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-La última tarda unos minutos (descarga ~150 MB). Si no tienes `git`, descarga el
+La última tarda unos minutos (descarga ~150 MB). **Si ya tenías el kit instalado de antes**, actualízalo con `git pull` y vuelve a ejecutar esa última línea: cambió la versión de MediaPipe. Si no tienes `git`, descarga el
 ZIP desde el botón verde **Code → Download ZIP** y descomprímelo.
 
 ---
@@ -189,6 +189,7 @@ persona reventarían el repositorio).
 |---|---|
 | La ventana se ve **completamente negra** | El **obturador físico** de la webcam está cerrado, o el interruptor de cámara del portátil (suele ser `Fn` + `F9`/`F10`, busca el icono de cámara tachada). Es el fallo más común. |
 | La ventana **tarda en aparecer** | Normal la primera vez (hasta 2 min cargando TensorFlow/MediaPipe). **Espera; no lo relances.** |
+| `Una directiva de Control de aplicaciones bloqueó este archivo` (WinError 4551) o el arranque se queda colgado | **Smart App Control** de Windows está bloqueando una librería. Comprueba que instalaste con el `requirements.txt` actual (`mediapipe==0.10.35`: la 1.0.x se bloquea) y que el `.venv` es el de esta carpeta, sin TensorFlow. Si aun así falla, graba en otro portátil. No hace falta desactivar ninguna protección. |
 | `[ERROR] No se pudo abrir la camara` | Otra aplicación la está usando. Cierra **Teams, Zoom, Discord, Chrome** y vuelve a lanzarlo. |
 | `[ERROR] No encuentro el entorno virtual .venv` | No hiciste la instalación, o la hiciste desde otra carpeta. Repítela **dentro** de la carpeta del proyecto. |
 | `identificador de participante no valido` | Escribe sólo letras minúsculas y números, sin espacios: `p3`, no `P 3` ni `p_3`. |
